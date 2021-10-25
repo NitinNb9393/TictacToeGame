@@ -6,9 +6,10 @@ public class TicTacToeGam {
 	public static char[] element;
 	static char userMark, computerMark;
 	static Scanner scan = new Scanner(System.in);
+	static int userNumber;
 
 	public static void main(String[] args) {
-		System.out.println("Welcome to the Tic Tac Toe Game !!!!!!");
+		System.out.println("Welcome to the Tic Tac Toe Game ");
 		boardCreation();
 		choosingXorO();
 		currentBoard();
@@ -54,5 +55,15 @@ public class TicTacToeGam {
 		System.out.println("  " + element[4] + " | " + element[5] + " | " + element[6] + " ");
 		System.out.println(" --------------");
 		System.out.println("  " + element[7] + " | " + element[8] + " | " + element[9] + " \n");
+	}
+
+	public static void userCall() {
+        System.out.println("\nEnter a number from board to make the mark:\n");
+        userNumber = scan.nextInt();
+        if (userNumber < 1 || userNumber > 9) {
+            currentBoard();
+            System.out.println("Your input is Invalid");
+            userCall();
+        }
 	}
 }
